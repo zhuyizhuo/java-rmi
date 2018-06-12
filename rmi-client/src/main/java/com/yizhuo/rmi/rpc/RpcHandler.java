@@ -1,9 +1,7 @@
 package com.yizhuo.rmi.rpc;
 
-import java.io.OutputStream;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.net.Socket;
 
 /**
  * Created by yizhuo on 2018/6/5.

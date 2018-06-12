@@ -7,7 +7,8 @@ import java.lang.reflect.Proxy;
  */
 public class RpcProxy {
 
-    public static <T> T getInstance(Class<T> clazz,String host,int port){
+    @SuppressWarnings("unchecked")
+	public static <T> T getInstance(Class<T> clazz,String host,int port){
         return (T)Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, new RpcHandler(host,port));
     }
 }

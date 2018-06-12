@@ -8,7 +8,9 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class HelloServiceImpl extends UnicastRemoteObject implements  IHelloService{
 
-    protected HelloServiceImpl() throws RemoteException {
+	private static final long serialVersionUID = 1L;
+
+	protected HelloServiceImpl() throws RemoteException {
         super();
     }
 
