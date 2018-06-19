@@ -6,6 +6,7 @@ import java.net.Socket;
 /**
  * Created by yizhuo on 2018/6/5.
  */
+@SuppressWarnings("resource")
 public class RpcTrans {
     private String host;
     private int port;
@@ -17,7 +18,7 @@ public class RpcTrans {
 
     public Object trans(RpcRequest request){
         try{
-            Socket socket = new Socket(host,port);
+			Socket socket = new Socket(host,port);
             OutputStream outputStream = socket.getOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeObject(request);
