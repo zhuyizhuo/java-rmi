@@ -7,10 +7,13 @@ import com.yizhuo.rmi.zk.discover.ServerDiscoveryImpl;
  */
 public class ClientDemo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ServerDiscoveryImpl serverDiscovery = new ServerDiscoveryImpl();
         RpcProxy rpcProxy = new RpcProxy(serverDiscovery);
-        IHelloService helloService = rpcProxy.getInstance(IHelloService.class);
-        System.out.println(helloService.sayHello("yizhuo"));
+        for (int i = 0; i < 10; i++) {
+            IHelloService helloService = rpcProxy.getInstance(IHelloService.class,"");
+            System.out.println(helloService.sayHello("yizhuo"));
+            Thread.sleep(2000);
+        }
     }
 }

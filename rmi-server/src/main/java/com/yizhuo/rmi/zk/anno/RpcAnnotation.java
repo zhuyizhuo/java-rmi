@@ -11,4 +11,6 @@ public @interface RpcAnnotation {
 
     Class<?> value();
 
+    String version() default "";
+
 }

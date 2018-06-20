@@ -50,7 +50,12 @@ public class RpcHandler implements Runnable {
             for (int i = 0; i < params.length ;i++){
                 types[i] = params[i].getClass();
             }
-            Object service = handlerMap.get(request.getClassName());
+            String version = request.getVersion();
+            String serviceName = request.getClassName();
+            if (version!= null && !version.equals("")){
+                serviceName = serviceName + "-" + version;
+            }
+            Object service = handlerMap.get(serviceName);
             Method method = service.getClass().getMethod(request.getMethodName(), types);
             Object invoke = method.invoke(service, params);
             return invoke;

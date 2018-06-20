@@ -9,6 +9,17 @@ public class RpcRequest implements Serializable{
 
     private static final long serialVersionUID = 374794935988089062L;
     private String className;
+    private String methodName;
+    private Object[] params;
+    private String version;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
 
     public String getClassName() {
         return className;
@@ -17,9 +28,6 @@ public class RpcRequest implements Serializable{
     public void setClassName(String className) {
         this.className = className;
     }
-
-    private String methodName;
-    private Object[] params;
 
     public String getMethodName() {
         return methodName;

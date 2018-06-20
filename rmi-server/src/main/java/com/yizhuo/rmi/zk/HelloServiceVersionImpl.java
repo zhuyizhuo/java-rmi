@@ -5,10 +5,10 @@ import com.yizhuo.rmi.zk.anno.RpcAnnotation;
 /**
  * Created by yizhuo on 2018/6/5.
  */
-@RpcAnnotation(value = IHelloService.class)
-public class HelloServiceImpl implements IHelloService {
+@RpcAnnotation(value = IHelloService.class,version = "2.0")
+public class HelloServiceVersionImpl implements IHelloService {
     @Override
     public String sayHello(String msg) {
-        return "I'm 8080 service. hello," + msg;
+        return "I'm version 2.0,hello," + msg;
     }
 }

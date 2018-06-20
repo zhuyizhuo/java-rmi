@@ -6,9 +6,9 @@ import com.yizhuo.rmi.zk.anno.RpcAnnotation;
  * Created by yizhuo on 2018/6/5.
  */
 @RpcAnnotation(value = IHelloService.class)
-public class HelloServiceImpl implements IHelloService {
+public class HelloServiceClusterImpl implements IHelloService {
     @Override
     public String sayHello(String msg) {
-        return "I'm 8080 service. hello," + msg;
+        return "I'm 8081 service. hello," + msg;
     }
 }

@@ -15,7 +15,7 @@ public class RpcProxy {
         this.serverDiscovery = serverDiscovery;
     }
 
-    public <T> T getInstance(Class<T> clazz){
-        return (T)Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, new RpcHandler(serverDiscovery));
+    public <T> T getInstance(Class<T> clazz,String version){
+        return (T)Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, new RpcHandler(serverDiscovery,version));
     }
 }

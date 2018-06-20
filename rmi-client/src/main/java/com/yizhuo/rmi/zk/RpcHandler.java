@@ -11,9 +11,11 @@ import java.lang.reflect.Method;
 public class RpcHandler implements InvocationHandler {
 
     private IServerDiscovery serverDiscovery;
+    private String version;
 
-    public RpcHandler(IServerDiscovery serverDiscovery) {
+    public RpcHandler(IServerDiscovery serverDiscovery,String version) {
         this.serverDiscovery = serverDiscovery;
+        this.version = version;
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -21,7 +23,7 @@ public class RpcHandler implements InvocationHandler {
         request.setClassName(method.getDeclaringClass().getName());
         request.setMethodName(method.getName());
         request.setParams(args);
-
+        request.setVersion(version);
         String discover = serverDiscovery.discover(request.getClassName());
         String[] split = discover.split(":");
         RpcTrans rpcTrans = new RpcTrans(split[0],Integer.parseInt(split[1]));
